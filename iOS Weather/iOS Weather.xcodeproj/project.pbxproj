@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3F7E2820DF190F36DC76FEE6 /* Pods_iOS_WeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8F14DBC52143CB98B6DFF4 /* Pods_iOS_WeatherTests.framework */; };
 		7A6E5B202890CDA60002480A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E5B1F2890CDA60002480A /* AppDelegate.swift */; };
-		7A6E5B242890CDA60002480A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E5B232890CDA60002480A /* ViewController.swift */; };
 		7A6E5B272890CDA60002480A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A6E5B252890CDA60002480A /* Main.storyboard */; };
 		7A6E5B292890CDAA0002480A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A6E5B282890CDAA0002480A /* Assets.xcassets */; };
 		7A6E5B2C2890CDAA0002480A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A6E5B2A2890CDAA0002480A /* LaunchScreen.storyboard */; };
@@ -208,7 +207,6 @@
 		6E8F14DBC52143CB98B6DFF4 /* Pods_iOS_WeatherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_WeatherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A6E5B1C2890CDA60002480A /* iOS Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A6E5B1F2890CDA60002480A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7A6E5B232890CDA60002480A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7A6E5B262890CDA60002480A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A6E5B282890CDAA0002480A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A6E5B2B2890CDAA0002480A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -347,7 +345,6 @@
 				7A6E5B4F2890D1400002480A /* Configuration */,
 				7A6E5B8B2890F9760002480A /* Services */,
 				7A6E5B522890D41D0002480A /* Modules */,
-				7A6E5B232890CDA60002480A /* ViewController.swift */,
 			);
 			path = "iOS Weather";
 			sourceTree = "<group>";
@@ -663,7 +660,6 @@
 				520436BDFFD00E548F4E9A42 /* Pods-iOS WeatherTests.debug.xcconfig */,
 				1BD14547A1885CE2978E0F39 /* Pods-iOS WeatherTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -954,7 +950,6 @@
 				7A6E5B762890E6520002480A /* UIViewControllerExtension.swift in Sources */,
 				7A6E5B5B2890D7470002480A /* BaseViewController.swift in Sources */,
 				7A6E5C05289154DD0002480A /* RamotionWaveLayer.swift in Sources */,
-				7A6E5B242890CDA60002480A /* ViewController.swift in Sources */,
 				7A6E5C0B289154DD0002480A /* SlackLoadingAnimator.swift in Sources */,
 				7A6E5C2F289154DD0002480A /* CRRefreshHeaderView.swift in Sources */,
 				7A6E5C11289154DD0002480A /* FastAnimator.swift in Sources */,

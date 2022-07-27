@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ForecastViewController: BaseViewController {
 
     @IBOutlet weak private var noDataLabel: UILabel!
     @IBOutlet weak private var tableView: UITableView!
     private var tableViewDelegate: BaseTableViewDelegate<WeatherDetailTableViewCell>?
-    private let forecastViewModel = ForecastViewModel()
+    let forecastViewModel = ForecastViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +31,11 @@ class ForecastViewController: BaseViewController {
     }
     
     override func loadData() {
+        SVProgressHUD.show()
         forecastViewModel.getForecastList(completion: { [weak self] error in
+            SVProgressHUD.dismiss()
             guard let self = self else { return }
-            self.noDataLabel.isHidden = self.forecastViewModel.forecastList.isEmpty
+            self.noDataLabel.isHidden = !self.forecastViewModel.forecastList.isEmpty
             self.tableViewDelegate?.dataArray = [self.forecastViewModel.forecastList]
         })
     }

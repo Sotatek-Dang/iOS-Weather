@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class CurrentWeatherViewController: BaseViewController {
 
@@ -22,12 +23,14 @@ class CurrentWeatherViewController: BaseViewController {
         super.setupUI()
         addTitle(title: "Weather")
         addLeftBarItem(imageName: "menu", selectedImage: "menu", title: "")
-        addRightBarItem(imageName: "", imageTouch: "", title: "Forecast")
     }
     
     private func updateWeatherDetail() {
-        weatherDetailView.isHidden = false
+        weatherDetailView.isHidden = currentWeatherViewModel.detail.cityName.isEmpty
         self.weatherDetailView.setupWeatherDetail(viewModel: currentWeatherViewModel)
+        if !currentWeatherViewModel.detail.cityName.isEmpty {
+            addRightBarItem(imageName: "", imageTouch: "", title: "Forecast")
+        }
     }
     
     private func updateTemperatureUnit(isCelcius: Bool) {
@@ -61,8 +64,9 @@ extension CurrentWeatherViewController: UITextFieldDelegate {
         guard let locationName = searchTextField.text, !locationName.isEmpty else {
             return
         }
-        
+        SVProgressHUD.show()
         currentWeatherViewModel.getCurrentWeather(location: locationName, completion: { [weak self] error in
+            SVProgressHUD.dismiss()
             guard let self = self else { return }
             self.updateWeatherDetail()
         })
