@@ -51,10 +51,14 @@ class CurrentWeatherViewController: BaseViewController {
     // MARK: - Actions
     override func tappedLeftBarButton(sender: UIButton) {
         // Show menu
-        showActionSheet(selectionArray: menuOptions, onTapped: { [weak self] selectedOption in
+        TemperatureSelectionView.showTemperatureSelectionView(isCelsius: currentWeatherViewModel.isCelcius, onSelected: { [weak self] isCelsius in
             guard let self = self else { return }
-            self.updateTemperatureUnit(isCelcius: selectedOption == menuOptions.first)
-        }, onCancel: {})
+            self.updateTemperatureUnit(isCelcius: isCelsius)
+        })
+//        showActionSheet(selectionArray: menuOptions, onTapped: { [weak self] selectedOption in
+//            guard let self = self else { return }
+//            self.updateTemperatureUnit(isCelcius: selectedOption == menuOptions.first)
+//        }, onCancel: {})
     }
     
     override func tappedRightBarButton(sender: UIButton) {
@@ -63,8 +67,6 @@ class CurrentWeatherViewController: BaseViewController {
     
     @IBAction func cancelSearching(_ sender: UIButton) {
         searchTextField.text = ""
-        weatherDetailView.isHidden = true
-        noDataLabel.isHidden = false
         cancelButton.isHidden = true
         searchTextField.resignFirstResponder()
     }

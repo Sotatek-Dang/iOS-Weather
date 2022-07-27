@@ -179,6 +179,8 @@
 		7A6E5C4A289156220002480A /* ForecastCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E5C47289156220002480A /* ForecastCoordinator.swift */; };
 		7A6E5C4C289162F90002480A /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E5C4B289162F90002480A /* UITextFieldExtension.swift */; };
 		7A9A61FC28919C520063D6FE /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A61FB28919C520063D6FE /* DateExtension.swift */; };
+		7A9A61FF2891B3680063D6FE /* TemperatureSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A61FE2891B3680063D6FE /* TemperatureSelectionView.swift */; };
+		7A9A62012891B3990063D6FE /* TemperatureSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9A62002891B3990063D6FE /* TemperatureSelectionView.xib */; };
 		DE8754908C7574EF5DB2298B /* Pods_iOS_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6306EA526478CB73AE8BF863 /* Pods_iOS_Weather.framework */; };
 		E04D85FAC8D7DA7F3F2AF38F /* Pods_iOS_Weather_iOS_WeatherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA34B656D45775AD15A917E1 /* Pods_iOS_Weather_iOS_WeatherUITests.framework */; };
 /* End PBXBuildFile section */
@@ -274,6 +276,8 @@
 		7A6E5C47289156220002480A /* ForecastCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCoordinator.swift; sourceTree = "<group>"; };
 		7A6E5C4B289162F90002480A /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		7A9A61FB28919C520063D6FE /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		7A9A61FE2891B3680063D6FE /* TemperatureSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureSelectionView.swift; sourceTree = "<group>"; };
+		7A9A62002891B3990063D6FE /* TemperatureSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemperatureSelectionView.xib; sourceTree = "<group>"; };
 		A04717AAF06977F55E5A5DA2 /* Pods-iOS Weather-iOS WeatherUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Weather-iOS WeatherUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOS Weather-iOS WeatherUITests/Pods-iOS Weather-iOS WeatherUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA34B656D45775AD15A917E1 /* Pods_iOS_Weather_iOS_WeatherUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Weather_iOS_WeatherUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F764FCE61DAF6712358A8398 /* Pods-iOS Weather-iOS WeatherUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Weather-iOS WeatherUITests.release.xcconfig"; path = "Target Support Files/Pods-iOS Weather-iOS WeatherUITests/Pods-iOS Weather-iOS WeatherUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -465,6 +469,7 @@
 		7A6E5B862890F2020002480A /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				7A9A61FD2891B3440063D6FE /* Selection */,
 				7A6E5BDF289154CF0002480A /* TableView */,
 				7A6E5B822890F1F90002480A /* WeatherDetailView.swift */,
 				7A6E5B872890F21B0002480A /* WeatherDetailView.xib */,
@@ -656,6 +661,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7A9A61FD2891B3440063D6FE /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				7A9A61FE2891B3680063D6FE /* TemperatureSelectionView.swift */,
+				7A9A62002891B3990063D6FE /* TemperatureSelectionView.xib */,
+			);
+			path = Selection;
+			sourceTree = "<group>";
+		};
 		D39B6CD821ABB0F89EA186C6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -785,6 +799,7 @@
 				7A6E5C29289154DD0002480A /* NormalFooter.bundle in Resources */,
 				7A6E5B682890DF200002480A /* Service.plist in Resources */,
 				7A6E5C20289154DD0002480A /* NormalHeader.bundle in Resources */,
+				7A9A62012891B3990063D6FE /* TemperatureSelectionView.xib in Resources */,
 				7A6E5C442891553D0002480A /* WeatherDetailTableViewCell.xib in Resources */,
 				7A6E5B882890F21B0002480A /* WeatherDetailView.xib in Resources */,
 				7A6E5B272890CDA60002480A /* Main.storyboard in Resources */,
@@ -946,6 +961,7 @@
 				7A6E5C23289154DD0002480A /* NormalHeaderAnimator.swift in Sources */,
 				7A6E5B94289115FB0002480A /* CurrentWeatherCoordinator.swift in Sources */,
 				7A6E5B642890DEB80002480A /* StringExtension.swift in Sources */,
+				7A9A61FF2891B3680063D6FE /* TemperatureSelectionView.swift in Sources */,
 				7A6E5B832890F1F90002480A /* WeatherDetailView.swift in Sources */,
 				7A6E5B6F2890E52A0002480A /* CurrentWeatherViewController.swift in Sources */,
 				7A6E5C412891553D0002480A /* WeatherDetailTableViewCell.swift in Sources */,
