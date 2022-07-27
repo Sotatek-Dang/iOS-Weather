@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Init first view controllers
         CurrentWeatherCoordinator().start(data: window)
-        
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 }

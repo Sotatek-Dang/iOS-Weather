@@ -29,8 +29,13 @@ class CurrentWeatherViewModel: NSObject {
         self.detail.statusImage = existWeather.weather?.first?.icon ?? "background_default"
         self.detail.timeImage   = "\(self.detail.statusImage)-1"
         self.detail.statusImage = "\(self.detail.statusImage)-2"
-        self.detail.cityName = existWeather.cityName ?? ""
-        
+        self.detail.cityName    = existWeather.cityName ?? ""
+        self.detail.description = existWeather.weather?.first?.description ?? ""
+        if let timeStamp = existWeather.dt {
+            let date = Date.init(timeIntervalSince1970: timeStamp)
+            self.detail.time = date.getDateString(format: "dd-MM-yyyy")
+        }
+
         if let humidity = existWeather.main?.humidity {
             self.detail.humidity = "\(humidity)%"
         }
@@ -52,4 +57,6 @@ struct WeatherDetail {
     var humidity: String = ""
     var statusImage: String = ""
     var timeImage: String = ""
+    var description: String = ""
+    var time: String = ""
 }

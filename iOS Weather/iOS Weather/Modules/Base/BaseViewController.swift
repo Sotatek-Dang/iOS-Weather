@@ -8,7 +8,7 @@
 import UIKit
 import SVProgressHUD
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         setupUI()
@@ -28,6 +28,8 @@ class BaseViewController: UIViewController {
     }
     
     func setupUI() {
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         setupNavigationbarColor()
     }
     

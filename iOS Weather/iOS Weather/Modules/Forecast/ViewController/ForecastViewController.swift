@@ -43,8 +43,9 @@ class ForecastViewController: BaseViewController {
     // MARK: - TableView delegate, datasource
     private func setupCell(indexPath: IndexPath, dataItem: Any, cell: UITableViewCell) {
         // TODO: Setup UI for cell
-        if let weatherCell = cell as? WeatherDetailTableViewCell {
-            weatherCell.setupCell(object: dataItem)
+        if let weatherCell = cell as? WeatherDetailTableViewCell, var currentWather = dataItem as? CurrentWeatherModel {
+            currentWather.cityName = forecastViewModel.cityName
+            weatherCell.setupCell(object: currentWather)
         }
     }
 }

@@ -10,12 +10,18 @@ import SVProgressHUD
 
 class CurrentWeatherViewController: BaseViewController {
 
+    @IBOutlet weak private var cancelButton: UIButton!
     @IBOutlet weak private var searchTextField: UITextField!
     @IBOutlet weak private var weatherDetailView: WeatherDetailView!
+    @IBOutlet weak private var noDataLabel: UILabel!
     private let currentWeatherViewModel = CurrentWeatherViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
     }
     
     // MARK: - Setup View
@@ -27,6 +33,7 @@ class CurrentWeatherViewController: BaseViewController {
     
     private func updateWeatherDetail() {
         weatherDetailView.isHidden = currentWeatherViewModel.detail.cityName.isEmpty
+        noDataLabel.isHidden = !weatherDetailView.isHidden
         self.weatherDetailView.setupWeatherDetail(viewModel: currentWeatherViewModel)
         if !currentWeatherViewModel.detail.cityName.isEmpty {
             addRightBarItem(imageName: "", imageTouch: "", title: "Forecast")
@@ -50,6 +57,13 @@ class CurrentWeatherViewController: BaseViewController {
     override func tappedRightBarButton(sender: UIButton) {
         ForecastCoordinator().start(data: currentWeatherViewModel.detail.cityName)
     }
+    
+    @IBAction func cancelSearching(_ sender: UIButton) {
+        searchTextField.text = ""
+        weatherDetailView.isHidden = true
+        noDataLabel.isHidden = false
+        cancelButton.isHidden = true
+    }
 }
 
 // MARK: - Textfield delegate
@@ -57,6 +71,14 @@ extension CurrentWeatherViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         search()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        cancelButton.isHidden = false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        cancelButton.isHidden = true
     }
     
     private func search() {

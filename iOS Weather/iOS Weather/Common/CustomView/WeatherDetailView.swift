@@ -13,7 +13,9 @@ import UIKit
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var timeImageView: UIImageView!
+    @IBOutlet weak var timeLabel: UILabel!
     
     func setupWeatherDetail(viewModel: CurrentWeatherViewModel, isCelcius: Bool = true) {
         // Update current background
@@ -22,5 +24,7 @@ import UIKit
         cityNameLabel.text      = viewModel.detail.cityName
         humidityLabel.text      = viewModel.detail.humidity
         temperatureLabel.text   = viewModel.isCelcius ? viewModel.detail.celcius : viewModel.detail.fahrenheit
+        descriptionLabel.text   = viewModel.detail.description
+        timeLabel.text          = viewModel.detail.time
     }
 }

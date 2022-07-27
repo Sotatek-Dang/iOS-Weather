@@ -23,7 +23,7 @@ struct CurrentWeatherModel: Decodable {
     let dt: Double?
     let sys: Sys?
     let cityId: Int?
-    let cityName: String? ///City name
+    var cityName: String? ///City name
     let statusCode: Int? /// cod - Internal parameter for HTTP Response
     
     struct Coordinates: Decodable {

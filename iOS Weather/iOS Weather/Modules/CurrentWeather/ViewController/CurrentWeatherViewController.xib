@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurrentWeatherViewController" customModule="iOS_Weather" customModuleProvider="target">
             <connections>
+                <outlet property="cancelButton" destination="hfP-PI-2ax" id="av9-gX-Uio"/>
+                <outlet property="noDataLabel" destination="eAM-1k-XfR" id="Li4-xu-F8J"/>
                 <outlet property="searchTextField" destination="ACV-3Y-bCJ" id="S0U-ZR-Gaw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weatherDetailView" destination="N5z-Pt-ee8" id="2hS-v8-RXx"/>
@@ -19,36 +21,57 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter location name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-3Y-bCJ" customClass="CustomTextField" customModule="iOS_Weather" customModuleProvider="target">
-                    <rect key="frame" x="20" y="106" width="374" height="40"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HT2-ua-qdz">
+                    <rect key="frame" x="20" y="105.5" width="374" height="40"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter location name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-3Y-bCJ" customClass="CustomTextField" customModule="iOS_Weather" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="GBX-2k-FnB"/>
+                            </constraints>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusView">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="DWx-8u-GRR"/>
+                            </connections>
+                        </textField>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfP-PI-2ax">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="JGf-G0-TYc"/>
+                                <constraint firstAttribute="width" constant="50" id="cI4-vm-tCr"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Cancel"/>
+                            <connections>
+                                <action selector="cancelSearching:" destination="-1" eventType="touchUpInside" id="ncy-DR-jux"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="GBX-2k-FnB"/>
+                        <constraint firstAttribute="height" constant="40" id="Xqk-GG-bjA"/>
                     </constraints>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusView">
-                            <real key="value" value="6"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="DWx-8u-GRR"/>
-                    </connections>
-                </textField>
+                </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lb8-rl-e3T">
-                    <rect key="frame" x="20" y="74" width="86" height="22"/>
+                    <rect key="frame" x="20" y="74" width="86" height="21.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5z-Pt-ee8" customClass="WeatherDetailView" customModule="iOS_Weather" customModuleProvider="target">
-                    <rect key="frame" x="20" y="176" width="374" height="140"/>
+                    <rect key="frame" x="20" y="175.5" width="374" height="140"/>
                     <color key="backgroundColor" red="0.49803921568627452" green="0.82352941176470584" blue="0.91764705882352937" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="140" id="t9W-hy-yis"/>
@@ -65,18 +88,26 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAM-1k-XfR">
+                    <rect key="frame" x="171.5" y="436" width="71.5" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="HT2-ua-qdz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="21A-Qb-Rkn"/>
                 <constraint firstItem="Lb8-rl-e3T" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="3Ec-is-LUb"/>
-                <constraint firstItem="ACV-3Y-bCJ" firstAttribute="top" secondItem="Lb8-rl-e3T" secondAttribute="bottom" constant="10" id="3Xt-Oh-UI6"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ACV-3Y-bCJ" secondAttribute="trailing" constant="20" id="5E0-vI-hyF"/>
-                <constraint firstItem="ACV-3Y-bCJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="797-at-od4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="N5z-Pt-ee8" secondAttribute="trailing" constant="20" id="AUh-U8-TQL"/>
-                <constraint firstItem="N5z-Pt-ee8" firstAttribute="top" secondItem="ACV-3Y-bCJ" secondAttribute="bottom" constant="30" id="Zi9-TK-BfR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HT2-ua-qdz" secondAttribute="trailing" constant="20" id="LQG-qF-TNe"/>
                 <constraint firstItem="Lb8-rl-e3T" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="b6A-k8-VkA"/>
+                <constraint firstItem="eAM-1k-XfR" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="kll-bj-IGS"/>
+                <constraint firstItem="HT2-ua-qdz" firstAttribute="top" secondItem="Lb8-rl-e3T" secondAttribute="bottom" constant="10" id="oV6-vy-d7K"/>
                 <constraint firstItem="N5z-Pt-ee8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="uED-b6-HXu"/>
+                <constraint firstItem="eAM-1k-XfR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wRs-G8-ajT"/>
+                <constraint firstItem="N5z-Pt-ee8" firstAttribute="top" secondItem="HT2-ua-qdz" secondAttribute="bottom" constant="30" id="wh7-ac-aoC"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="110.49107142857143"/>
         </view>
