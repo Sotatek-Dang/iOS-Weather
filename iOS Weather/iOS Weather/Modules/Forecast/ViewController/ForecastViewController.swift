@@ -9,9 +9,10 @@ import UIKit
 
 class ForecastViewController: BaseViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    var tableViewDelegate: BaseTableViewDelegate<WeatherDetailTableViewCell>?
-    let forecastViewModel = ForecastViewModel()
+    @IBOutlet weak private var noDataLabel: UILabel!
+    @IBOutlet weak private var tableView: UITableView!
+    private var tableViewDelegate: BaseTableViewDelegate<WeatherDetailTableViewCell>?
+    private let forecastViewModel = ForecastViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,7 @@ class ForecastViewController: BaseViewController {
     // MARK: - Setup View
     override func setupUI() {
         super.setupUI()
-        addTitle(title: forecastViewModel.cityName)
+        addTitle(title: "5-Day forcast for \(forecastViewModel.cityName)")
         addLeftBarItem(imageName: "ico_back", selectedImage: "ico_back", title: "")
         
         // Setup TableView
@@ -31,12 +32,13 @@ class ForecastViewController: BaseViewController {
     override func loadData() {
         forecastViewModel.getForecastList(completion: { [weak self] error in
             guard let self = self else { return }
+            self.noDataLabel.isHidden = self.forecastViewModel.forecastList.isEmpty
             self.tableViewDelegate?.dataArray = [self.forecastViewModel.forecastList]
         })
     }
     
     // MARK: - TableView delegate, datasource
-    func setupCell(indexPath: IndexPath, dataItem: Any, cell: UITableViewCell) {
+    private func setupCell(indexPath: IndexPath, dataItem: Any, cell: UITableViewCell) {
         // TODO: Setup UI for cell
         if let weatherCell = cell as? WeatherDetailTableViewCell {
             weatherCell.setupCell(object: dataItem)
