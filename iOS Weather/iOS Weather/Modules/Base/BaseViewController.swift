@@ -103,6 +103,10 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: rightButton)
     }
     
+    func removeRightButton() {
+        self.navigationItem.rightBarButtonItem = nil
+    }
+    
     func addTitle(title : String) {
         self.title = title
     }

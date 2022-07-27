@@ -31,13 +31,16 @@ class CurrentWeatherViewController: BaseViewController {
         addLeftBarItem(imageName: "menu", selectedImage: "menu", title: "")
     }
     
-    private func updateWeatherDetail() {
-        weatherDetailView.isHidden = currentWeatherViewModel.detail.cityName.isEmpty
-        noDataLabel.isHidden = !weatherDetailView.isHidden
-        self.weatherDetailView.setupWeatherDetail(viewModel: currentWeatherViewModel)
-        if !currentWeatherViewModel.detail.cityName.isEmpty {
+    private func updateWeatherDetail(error: APIError?) {
+        if error != nil {
+            removeRightButton()
+        } else {
             addRightBarItem(imageName: "", imageTouch: "", title: "Forecast")
         }
+        
+        weatherDetailView.isHidden = (error != nil)
+        noDataLabel.isHidden = !weatherDetailView.isHidden
+        self.weatherDetailView.setupWeatherDetail(viewModel: currentWeatherViewModel)
     }
     
     private func updateTemperatureUnit(isCelcius: Bool) {
@@ -63,6 +66,7 @@ class CurrentWeatherViewController: BaseViewController {
         weatherDetailView.isHidden = true
         noDataLabel.isHidden = false
         cancelButton.isHidden = true
+        searchTextField.resignFirstResponder()
     }
 }
 
@@ -90,7 +94,7 @@ extension CurrentWeatherViewController: UITextFieldDelegate {
         currentWeatherViewModel.getCurrentWeather(location: locationName, completion: { [weak self] error in
             SVProgressHUD.dismiss()
             guard let self = self else { return }
-            self.updateWeatherDetail()
+            self.updateWeatherDetail(error: error)
         })
     }
 }

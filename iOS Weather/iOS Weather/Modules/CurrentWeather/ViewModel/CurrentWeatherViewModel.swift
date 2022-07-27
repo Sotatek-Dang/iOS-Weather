@@ -33,7 +33,7 @@ class CurrentWeatherViewModel: NSObject {
         self.detail.description = existWeather.weather?.first?.description ?? ""
         if let timeStamp = existWeather.dt {
             let date = Date.init(timeIntervalSince1970: timeStamp)
-            self.detail.time = date.getDateString(format: "dd-MM-yyyy")
+            self.detail.time = date.getDateString(format: "dd-MM HH:mm")
         }
 
         if let humidity = existWeather.main?.humidity {
