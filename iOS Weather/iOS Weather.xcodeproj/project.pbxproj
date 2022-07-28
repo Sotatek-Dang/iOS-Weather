@@ -39,9 +39,6 @@
 		7A6E5B762890E6520002480A /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E5B752890E6520002480A /* UIViewControllerExtension.swift */; };
 		7A6E5B772890E6520002480A /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E5B752890E6520002480A /* UIViewControllerExtension.swift */; };
 		7A6E5B782890E6520002480A /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E5B752890E6520002480A /* UIViewControllerExtension.swift */; };
-		7A6E5B7A2890E7080002480A /* StaticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E5B792890E7080002480A /* StaticData.swift */; };
-		7A6E5B7B2890E7080002480A /* StaticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E5B792890E7080002480A /* StaticData.swift */; };
-		7A6E5B7C2890E7080002480A /* StaticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E5B792890E7080002480A /* StaticData.swift */; };
 		7A6E5B7E2890F1460002480A /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E5B7D2890F1460002480A /* UIViewExtension.swift */; };
 		7A6E5B7F2890F1460002480A /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E5B7D2890F1460002480A /* UIViewExtension.swift */; };
 		7A6E5B802890F1460002480A /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E5B7D2890F1460002480A /* UIViewExtension.swift */; };
@@ -228,7 +225,6 @@
 		7A6E5B6D2890E52A0002480A /* CurrentWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewController.swift; sourceTree = "<group>"; };
 		7A6E5B6E2890E52A0002480A /* CurrentWeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentWeatherViewController.xib; sourceTree = "<group>"; };
 		7A6E5B752890E6520002480A /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		7A6E5B792890E7080002480A /* StaticData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticData.swift; sourceTree = "<group>"; };
 		7A6E5B7D2890F1460002480A /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		7A6E5B822890F1F90002480A /* WeatherDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailView.swift; sourceTree = "<group>"; };
 		7A6E5B872890F21B0002480A /* WeatherDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherDetailView.xib; sourceTree = "<group>"; };
@@ -450,7 +446,6 @@
 			isa = PBXGroup;
 			children = (
 				7A6E5B5F2890DDDC0002480A /* ServiceEnvironment.swift */,
-				7A6E5B792890E7080002480A /* StaticData.swift */,
 			);
 			path = Definition;
 			sourceTree = "<group>";
@@ -969,7 +964,6 @@
 				7A6E5BCB28914FA80002480A /* ForecastViewModel.swift in Sources */,
 				7A6E5BA628911CF10002480A /* BaseService.swift in Sources */,
 				7A6E5C2C289154DD0002480A /* CRRefreshBundle.swift in Sources */,
-				7A6E5B7A2890E7080002480A /* StaticData.swift in Sources */,
 				7A6E5B762890E6520002480A /* UIViewControllerExtension.swift in Sources */,
 				7A6E5B5B2890D7470002480A /* BaseViewController.swift in Sources */,
 				7A6E5C05289154DD0002480A /* RamotionWaveLayer.swift in Sources */,
@@ -1032,7 +1026,6 @@
 				7A6E5BA728911CF10002480A /* BaseService.swift in Sources */,
 				7A6E5BB8289127D70002480A /* WeatherModel.swift in Sources */,
 				7A6E5C27289154DD0002480A /* NormalFooterAnimator.swift in Sources */,
-				7A6E5B7B2890E7080002480A /* StaticData.swift in Sources */,
 				7A6E5B7F2890F1460002480A /* UIViewExtension.swift in Sources */,
 				7A6E5C33289154DD0002480A /* CRRefreshExtension.swift in Sources */,
 				7A6E5C12289154DD0002480A /* FastAnimator.swift in Sources */,
@@ -1080,7 +1073,6 @@
 				7A6E5BCD28914FA80002480A /* ForecastViewModel.swift in Sources */,
 				7A6E5BA828911CF10002480A /* BaseService.swift in Sources */,
 				7A6E5C2E289154DD0002480A /* CRRefreshBundle.swift in Sources */,
-				7A6E5B7C2890E7080002480A /* StaticData.swift in Sources */,
 				7A6E5B782890E6520002480A /* UIViewControllerExtension.swift in Sources */,
 				7A6E5B5D2890D7470002480A /* BaseViewController.swift in Sources */,
 				7A6E5C07289154DD0002480A /* RamotionWaveLayer.swift in Sources */,

@@ -10,7 +10,8 @@ import UIKit
 class ForecastViewModel: NSObject {
     var forecastList = [CurrentWeatherModel]()
     var cityName: String = ""
-    
+    var isCelsius: Bool = true
+
     func getForecastList(completion: @escaping (APIError?) -> ()) {
         WeatherService().getForecast(location: cityName, completion: { [weak self] (forecast, error) in
             guard let self = self else { return }

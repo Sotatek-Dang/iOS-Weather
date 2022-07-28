@@ -10,12 +10,14 @@ import UIKit
 class ForecastCoordinator: Coordinator {
     func start(data: Any?) {
         guard let delegate = UIApplication.shared.delegate as? AppDelegate,
-              let rootNavigation = delegate.window?.rootViewController as? UINavigationController else {
+              let rootNavigation = delegate.window?.rootViewController as? UINavigationController,
+              let parameters = data as? [AnyObject] else {
             return
         }
         
         let forecastNavigationController = ForecastViewController.loadFromNib()
-        forecastNavigationController.forecastViewModel.cityName = (data as? String) ?? ""
+        forecastNavigationController.forecastViewModel.cityName = (parameters.first as? String) ?? ""
+        forecastNavigationController.forecastViewModel.isCelsius = (parameters.last as? Bool) ?? true
         rootNavigation.pushViewController(forecastNavigationController, animated: true)
     }
 }

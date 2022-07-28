@@ -45,7 +45,7 @@ class ForecastViewController: BaseViewController {
         // TODO: Setup UI for cell
         if let weatherCell = cell as? WeatherDetailTableViewCell, var currentWather = dataItem as? CurrentWeatherModel {
             currentWather.cityName = forecastViewModel.cityName
-            weatherCell.setupCell(object: currentWather)
+            weatherCell.setupCell(object: [currentWather, forecastViewModel.isCelsius])
         }
     }
 }

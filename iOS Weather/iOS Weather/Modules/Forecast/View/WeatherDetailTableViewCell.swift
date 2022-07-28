@@ -20,8 +20,12 @@ class WeatherDetailTableViewCell: BaseTableViewCell {
     }
     
     override func setupCell(object: Any) {
-        guard let weather = object as? CurrentWeatherModel else { return }
+        guard let parameters = object as? [AnyObject],
+              let weather = parameters.first as? CurrentWeatherModel else { return }
+        
+        let isCelsius = (parameters.last as? Bool) ?? true
         let currentWeatherViewModel = CurrentWeatherViewModel()
+        currentWeatherViewModel.isCelcius = isCelsius
         currentWeatherViewModel.updateWeatherDetail(weather: weather)
         weatherDetailView.setupWeatherDetail(viewModel: currentWeatherViewModel)
     }

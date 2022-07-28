@@ -55,14 +55,10 @@ class CurrentWeatherViewController: BaseViewController {
             guard let self = self else { return }
             self.updateTemperatureUnit(isCelcius: isCelsius)
         })
-//        showActionSheet(selectionArray: menuOptions, onTapped: { [weak self] selectedOption in
-//            guard let self = self else { return }
-//            self.updateTemperatureUnit(isCelcius: selectedOption == menuOptions.first)
-//        }, onCancel: {})
     }
     
     override func tappedRightBarButton(sender: UIButton) {
-        ForecastCoordinator().start(data: currentWeatherViewModel.detail.cityName)
+        ForecastCoordinator().start(data: [currentWeatherViewModel.detail.cityName, currentWeatherViewModel.isCelcius])
     }
     
     @IBAction func cancelSearching(_ sender: UIButton) {
