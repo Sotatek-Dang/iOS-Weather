@@ -14,4 +14,10 @@ extension Date {
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
+    
+    func nextDate(number: Int = 1) -> Date {
+        var coms = DateComponents()
+        coms.day = number
+        return Calendar.current.date(byAdding: coms, to: self)!
+    }
 }

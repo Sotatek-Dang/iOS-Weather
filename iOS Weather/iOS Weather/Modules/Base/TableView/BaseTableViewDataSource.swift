@@ -23,7 +23,7 @@ class BaseTableViewDelegate<TableViewCell: BaseTableViewCell>: NSObject, UITable
     var pullToRefreshData: (() -> Void)?
     var loadMoreData: (() -> Void)?
     var hasLoadMore: Bool = true
-    init(hasPull: Bool = true, hasLoadMore: Bool = true, isFromNib: Bool = true, data: [[Any]] = [[]], tableView: UITableView) {
+    init(hasPull: Bool = false, hasLoadMore: Bool = false, isFromNib: Bool = true, data: [[Any]] = [[]], tableView: UITableView) {
         super.init()
         self.dataArray = data
         self.tableView = tableView

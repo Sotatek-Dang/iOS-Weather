@@ -26,7 +26,7 @@ class ForecastViewController: BaseViewController {
         addLeftBarItem(imageName: "ico_back", selectedImage: "ico_back", title: "")
         
         // Setup TableView
-        tableViewDelegate = BaseTableViewDelegate(hasPull: false, hasLoadMore: false, tableView: self.tableView)
+        tableViewDelegate = BaseTableViewDelegate(tableView: self.tableView)
         tableViewDelegate?.setupCell    = setupCell(indexPath:dataItem:cell:)
     }
     
